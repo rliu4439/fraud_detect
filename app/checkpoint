@@ -1,0 +1,2 @@
+model_checkpoint_path: "checkpt_file"
+all_model_checkpoint_paths: "checkpt_file"
