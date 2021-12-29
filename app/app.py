@@ -20,7 +20,8 @@ def score():
     features = request.json['X']
     #amount_time is [amount,time]
     amount_time=request.json['amount_time']
-    features=amount_time.extend(features)
-    predictions=oversample_model.predict(features)
+    amount_time = rob_scaler.transform(np.array(amount_time).reshape(1,-1)).tolist()[0]
+    amount_time.extend(features)
+    predictions=oversample_model.predict(np.array(amount_time).reshape(-1,30))
     result = np.argmax(predictions,axis=1)
-    return 'fraud' if result==0 else 'not fraud'
+    return 'Fraud' if result==0 else 'Not Fraud'

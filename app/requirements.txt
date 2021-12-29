@@ -1,3 +1,4 @@
 Flask
 tensorflow-cpu
 numpy
+sklearn
